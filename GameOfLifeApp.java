@@ -24,9 +24,9 @@ import javax.swing.Timer;
  */
 public class GameOfLifeApp extends JFrame {
 
-    private static final int ROWS = 15;
-    private static final int COLS = 25;
-    private static final int DELAY = 350;
+    private static final int ROWS = 180;
+    private static final int COLS = 300;
+    private static final int DELAY = 250;
 
     private final GameOfLife game;
     private final JButton[][] cells;
@@ -154,23 +154,23 @@ public class GameOfLifeApp extends JFrame {
     }
 
     private void stepGeneration() {
-        if (touchesWall()) {
+        /*if (touchesWall()) {
             stopAnimation();
             statusLabel.setText("A live cell reached the wall. Animation stopped.");
             return;
-        }
+        }*/
 
         game.update();
         generation++;
         refreshDisplay();
 
-        if (touchesWall()) {
+        /*if (touchesWall()) {
             stopAnimation();
             statusLabel.setText("A live cell reached the wall. Animation stopped.");
         }
-        else {
+        else {*/
             statusLabel.setText("Generation advanced.");
-        }
+        //}
     }
 
     private void toggleAnimation() {
@@ -179,10 +179,10 @@ public class GameOfLifeApp extends JFrame {
             statusLabel.setText("Animation stopped.");
         }
         else {
-            if (touchesWall()) {
+            /*if (touchesWall()) {
                 statusLabel.setText("Move the pattern away from the wall before starting.");
                 return;
-            }
+            }*/
 
             timer.start();
             startButton.setText("Stop");
